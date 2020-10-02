@@ -89,6 +89,12 @@ function checkPhone (){
   } else { return false;}
 }
 
+function checkEU (){
+  var choice = jsPsych.data.getLastTrialData().select('button_pressed').values[0];
+  if(choice == 0){
+    return true;
+  } else { return false;}
+}
   function getWord (){ //get a word for attention check from the word list
     Face.word = Face.wordList.shift();
     return Face.word;
