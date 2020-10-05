@@ -42,6 +42,16 @@ function getStim (){
   return Face.stim; //get last stim of the stim list
 }
 
+function consentSheets (){
+  var response = Face.LOC;
+  if (response == "0") { 
+    consent = "stupidEUConsentSheet.html";
+    }else{
+    consent = "external_page.html"
+  }
+  return consent
+}
+
 function check_consent (){
   if ($('#consent_checkbox').is(':checked')) {
     return true;
@@ -60,15 +70,15 @@ function checkID (){
     else{ return false;}
 }
 
-function checkUser (){//check if user has been in list of
-  var inputText = jsPsych.data.getLastTrialData().select('responses').values[0];
-  var userID = JSON.parse(inputText).Q0;
-  if(userList.responseText.includes(userID)){
-    alert('It seems that you have participated in the experiment before. Thank you for your participation!');
-    window.close();
-    return true;
-  } else { return false;}
-}
+// function checkUser (){//check if user has been in list of
+//   var inputText = jsPsych.data.getLastTrialData().select('responses').values[0];
+//   var userID = JSON.parse(inputText).Q0;
+//   if(userList.responseText.includes(userID)){
+//     alert('It seems that you have participated in the experiment before. Thank you for your participation!');
+//     window.close();
+//     return true;
+//   } else { return false;}
+// }
 
 function checkAnswer (){
   var inputText = jsPsych.data.getLastTrialData().select('responses').values[0];
